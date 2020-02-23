@@ -4,10 +4,10 @@
 2.1. GetCompulationallyExpensiveCalculationResult() reads only the input parameter and can be safely run in parallel.
 3. A simple fix is to use a local variable inside DoCalculationAndUpdateResultsInterlocked() and lock only while updating sum and count: 
         private void DoCalculationAndUpdateResultsInterlocked(int p) {
-            var simplefix = GetCompulationallyExpensiveCalculationResult(p);
+            var simpleFix = GetCompulationallyExpensiveCalculationResult(p);
             lock (lockobject)
             {
-                sum += simplefix;
+                sum += simpleFix;
                 count++;
             }
         }

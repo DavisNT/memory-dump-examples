@@ -7,7 +7,7 @@ namespace Example1
     {
         private int count = 0;
         private int sum = 0;
-        private object lockobject = new object();
+        private object lockObject = new object();
 
         private int GetCompulationallyExpensiveCalculationResult(int p)
         {
@@ -16,7 +16,7 @@ namespace Example1
             return p * 5;
         }
         private void DoCalculationAndUpdateResultsInterlocked(int p) {
-            lock (lockobject)
+            lock (lockObject)
             {
                 sum += GetCompulationallyExpensiveCalculationResult(p);
                 count++;
