@@ -11,6 +11,7 @@ namespace Example1
 
         private int GetCompulationallyExpensiveCalculationResult(int p)
         {
+            // let's assume this method is a complex calculation that takes 5 seconds and cannot be optimized
             Thread.Sleep(5000);
             return p * 5;
         }
