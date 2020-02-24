@@ -20,10 +20,9 @@ namespace Example3
             50, 99, 7, 9, 19, 35, 2, 6, 85, 1,
             47, 3, 64, 9, 78, 33, 9, 2, 3, 81,
             1, 1, 98, 3, 19, 5, 6, 55, 98, 44 };
-        private Dictionary<int, int> lookupDictionary;
+        private Dictionary<int, int> lookupDictionary = new Dictionary<int, int>();
 
         public DataProcessor() {
-            lookupDictionary = new Dictionary<int, int>();
             for (int i = 0; i < 20000; i++) {
                     lookupDictionary.Add(i, lookupTable[i % 100]+i);
             }
