@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 
 namespace Example3
 {
@@ -20,30 +21,26 @@ namespace Example3
             50, 99, 7, 9, 19, 35, 2, 6, 85, 1,
             47, 3, 64, 9, 78, 33, 9, 2, 3, 81,
             1, 1, 98, 3, 19, 5, 6, 55, 98, 44 };
-        private Dictionary<int, int> lookupDictionary = new Dictionary<int, int>();
 
-        public DataProcessor() {
-            for (int i = 0; i < 20000; i++) {
-                    lookupDictionary.Add(i, lookupTable[i % 100]+i);
-            }
-        }
-        private int InnocentHorrorCalculation(int k, int v, int p) {
-            var ts = new TimeSpan(k, v, p);
+        private bool IsItemRelated(int item, int p, int r) {
+            var ts = new TimeSpan(item, p, r);
+            Thread.Sleep(0);
 
-            return (k + 1) * (p + 1) + ts.Days;
+            return ts.Days < r;
         }
         
         private int GetCompulationallyExpensiveCalculationResult(int p)
         {
-            int r = p * p % 100;
+            int r = p * p % 101;
 
-            do
+            var remainingItems = new List<int>(lookupTable);
+
+            while (remainingItems.Count > 0)
             {
-                r += p;
-                r += lookupDictionary.FirstOrDefault(n => InnocentHorrorCalculation(n.Key, n.Value, p) % 101 > Math.Abs(r)).Value;
-                p = lookupTable[p];
+                var item = remainingItems.FirstOrDefault(n => IsItemRelated(n, p, r));
+                r += item;
+                remainingItems.Remove(item);
             }
-            while (p >= 10);
             return r;
         }
         private void DoCalculationAndUpdateResultsInterlocked(int p)
