@@ -21,10 +21,13 @@ namespace Example4
                 {
                     try
                     {
+                        cache[typeof(int)] = "int";
+                        Thread.Sleep(0);
                         cache.Remove(typeof(int));
                         cache[typeof(int)] = "int";
                         cache[typeof(string)] = "string";
                         cache.FirstOrDefault(kvp => kvp.Value == "string");
+                        cache[typeof(int)] = "int32";
                     }
                     catch (Exception e)
                     {
