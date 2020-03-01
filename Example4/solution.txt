@@ -1,0 +1,89 @@
+1. Use Parallel Stacks window to determine what code threads are executing.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1.1. All (most likely 100) threads are in various methods of Dictionary<> called from GetCompulationallyExpensiveCalculationResult().
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2. Select stack frame of one of the Dictionary<> methods (of a random thread), look at local variables and Make Object ID of local variable "this". For a few (1-4) other threads select stack frame of Dictionary<> method and examine local variables. Pay special attention to threads writing Dictionary<>!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2.1. All examined threads are accessing the same Dictionary<> object. There are several threads writing the same Dictionary<> object. As Dictionary<> is not thread safe this might be causing various issues (including access to Dictionary<> ending up in infinite loops).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3. A simple fix is to use ConcurrentDictionary<> instead of Dictionary<>.
+Property definition would need to be changed to ("using" statement also would need to be adjusted): private ConcurrentDictionary<Type, string> cache = new ConcurrentDictionary<Type, string>();
+And "cache.Remove(typeof(int));" would need to be changed to something like:
+string inRealLifeTheRemovedItemMightBeNeeded;
+cache.TryRemove(typeof(int), out inRealLifeTheRemovedItemMightBeNeeded);
