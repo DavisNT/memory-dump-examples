@@ -18,6 +18,8 @@ namespace Example4
                 threadsArray[i].Start();
             }
             Console.WriteLine("Threads started.");
+            Thread.Sleep(15000);
+            Console.WriteLine("15 seconds elapsed since all threads have been started.");
 
             for (int i = 0; i < 100; i++)
             {
