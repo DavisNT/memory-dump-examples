@@ -23,6 +23,8 @@ namespace Example3
             1, 1, 98, 3, 19, 5, 6, 55, 98, 44 };
 
         private bool IsItemRelated(int item, int p, int r) {
+            // let's assume this method is very complex and it is hard to determine how long it is executing
+            // however we can assume that it includes all the code that is here
             var ts = new TimeSpan(item, p, r);
             Thread.Sleep(0);
 
@@ -31,7 +33,7 @@ namespace Example3
         
         private int GetCompulationallyExpensiveCalculationResult(int p)
         {
-            int r = p * p % 101;
+            int r = p * p % 97;
 
             var remainingItems = new List<int>(lookupTable);
 
