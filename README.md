@@ -16,6 +16,10 @@ Each example has a file called `solution.txt` with troubleshooting steps and sol
 
 ## Details on the exercises
 
+#### Example1
+
+This is the most simple example.
+
 #### Example2
 
 :warning: This example has no simple fix (algorithm used here is incomprehensible and makes no sense). It is important to understand what, where and why is happening.
@@ -24,9 +28,11 @@ Each example has a file called `solution.txt` with troubleshooting steps and sol
 
 :warning: This example has no simple fix (algorithm used here is incomprehensible and makes no sense). It is important to understand what, where and why is happening.
 
+Usage of WinDbg might be needed.
+
 #### Example4
 
-This example relies on [race condition](https://en.wikipedia.org/wiki/Race_condition#Software) and might (unintentionally) work properly on some systems/under some circumstances.
+This example might (unintentionally) work properly on some systems/under some circumstances.
 Please wait until message `15 seconds elapsed since all threads have been started.` is displayed before taking the memory dump. If computer gets slowed down too much decrease priority of `Example4.exe` using Task Manager.
 
 #### Example5
@@ -34,3 +40,5 @@ Please wait until message `15 seconds elapsed since all threads have been starte
 This is a memory leak example.
 
 After fixing the memory leak it can be used to examine garbage collection in action.
+
+Usage of WinDbg or [PerfView](https://github.com/microsoft/perfview) might be needed.

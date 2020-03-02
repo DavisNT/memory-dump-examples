@@ -1,4 +1,4 @@
-1. Use Parallel Stacks window to determine what code threads are executing.
+1. Open the memory dump in Visual Studio. Use Parallel Stacks window to determine what code threads are executing.
 
 
 
