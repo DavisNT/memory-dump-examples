@@ -23,7 +23,7 @@ namespace Example3
             1, 1, 98, 3, 19, 5, 6, 55, 98, 44 };
 
         private bool IsItemRelated(int item, int p, int r) {
-            // let's assume this method is very complex and it is hard to determine how long it is executing
+            // let's assume this method is a "black box" - very complex and it is hard to determine how long it is executing
             // however we can assume that it includes all the code that is here
             var ts = new TimeSpan(item, p, r);
             Thread.Sleep(0);

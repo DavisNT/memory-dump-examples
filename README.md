@@ -28,6 +28,10 @@ This is the most simple example.
 
 :warning: This example has no simple fix (algorithm used here is incomprehensible and makes no sense). It is important to understand what, where and why is happening.
 
+:warning: This might be the hardest example.
+
+This is the "scapegoat" method example. Taking at least two memory dumps a few seconds apart is recommended.
+
 :information_source: Usage of [WinDbg](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/debugger-download-tools) might be needed.
 
 #### Example4
