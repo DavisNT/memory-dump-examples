@@ -11,13 +11,10 @@ namespace Example5
         private object lockObject = new object();
         private ConcurrentDictionary<int, DataClass> localCache = new ConcurrentDictionary<int, DataClass>();
         private static List<ConcurrentDictionary<int, DataClass>> globalCache = new List<ConcurrentDictionary<int, DataClass>>();
-        private static List<List<ConcurrentDictionary<int, DataClass>>> globalGlobalCache;
 
         public DataProcessor()
         {
             globalCache.Add(localCache);
-            globalGlobalCache = new List<List<ConcurrentDictionary<int, DataClass>>>();
-            globalGlobalCache.Add(globalCache);
         }
         private int GetCompulationallyExpensiveCalculationResult(int p)
         {
