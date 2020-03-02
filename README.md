@@ -28,7 +28,7 @@ This is the most simple example.
 
 :warning: This example has no simple fix (algorithm used here is incomprehensible and makes no sense). It is important to understand what, where and why is happening.
 
-Usage of WinDbg might be needed.
+:information_source: Usage of WinDbg might be needed.
 
 #### Example4
 
@@ -41,4 +41,4 @@ This is a memory leak example.
 
 After fixing the memory leak it can be used to examine garbage collection in action.
 
-Usage of WinDbg or [PerfView](https://github.com/microsoft/perfview) might be needed.
+:information_source: Usage of WinDbg or [PerfView](https://github.com/microsoft/perfview) might be needed.
